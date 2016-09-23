@@ -65,6 +65,9 @@
     MatrixLock.prototype.init = function () {
         var s = this.defaults.style;
         this.lock = typeof this.defaults.el == 'string' ? document.querySelector(this.defaults.el) : this.defaults.el;
+        if (this.lock.nodeName.toLocaleLowerCase() != 'canvas') {
+            throw Error('element必须是canvas！');
+        }
         this.lock.width = s.w;
         this.lock.height = s.h;
         this.lockCxt = this.lock.getContext('2d');

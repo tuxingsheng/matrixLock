@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>h5 手势解锁</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="lock"></canvas>
+</body>
+<script type="text/javascript" src="src/matrixLock.js"></script>
+<script>
+    // matrixLock.clear();
+    // 初始化还原canvas画布
+    var matrixLock = new MatrixLock({
+        el: '#lock',
+        callback: function (data) {
+            console.log('密码结果是: ' + data.join('->'));
+            //matrixLock.clear();
+        }
+    });
+</script>
+</html>
